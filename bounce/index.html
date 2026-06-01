@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="bounce.css">
+</head>
+
+<body>
+    <header>
+        <a href="index.html" class="logo">Bounce</a>
+        <nav class="navHeader">
+            <a href="aboutUs.html">О НАС</a>
+            <a href="">АКЦИИ</a>
+            <a href="catalog.html">КАТАЛОГ</a>
+           <a href="cart.html">КОРЗИНА</a>
+        </nav>
+        <a href="registration.html" class="login">Войти</a>
+    </header>
+    <main>
+        <section class="hero1">
+            <div id="hero1decorBack"></div>
+            <div class="heroStars">
+                <img src="/img/Soft Star.svg" id="heroStar1">
+                <img src="/img/Soft Star.svg" id="heroStar2">
+            </div>
+            <img src="/img/Flower.svg" id="flower">
+            <div class="hero1Decor">
+
+                <img src="/img/strawberry.png" class="up" loading="lazy">
+                <img src="/img/pinkGummy.png" class="up" loading="lazy">
+
+            </div>
+            <div class="hero1Content">
+                <img src="/img/Bounce.png" id="hero1Logo" class="up" alt="Bounce">
+                <p id="hero1Text">мармелад, который взрывает вкус</p>
+                <a href="catalog.html"><img src="/img/hero1Btn.png"></a>
+            </div>
+            <div class="ticker">
+                <div class="ticker__track">
+                    <span>сочный</span>
+                    <span>жевательный</span>
+                    <span>кислый</span>
+                    <span>бодрящий</span>
+                    <span>яркий</span>
+                    <span>взрывной</span>
+                    <span>блестящий</span>
+                    <span>фруктовый</span>
+                    <span>энергичный</span>
+                </div>
+            </div>
+        </section>
+        <section class="advantages">
+            <img src="/img/advantagesTitle.png" alt="Три причины любить Bounce" class="advantagesTitle">
+            <div class="cards noise">
+                <div class="card">
+                    <img src="/img/cardImg1.png" class="cardImg" loading="lazy">
+                    <h2 class="cardTitle" id="cardTitle1">Только фрукты</h2>
+                    <p class="cardText">Натуральный сок и пюре - никакой химии</p>
+                </div>
+                <div class="card">
+                    <img src="/img/cardImg2.png" class="cardImg" loading="lazy">
+                    <h2 class="cardTitle" id="cardTitle2">сочные вкусы</h2>
+                    <p class="cardText">От кислого лимона до сладкой клубники</p>
+                </div>
+                <div class="card">
+                    <img src="/img/cardImg3.png" class="cardImg" loading="lazy">
+                    <h2 class="cardTitle" id="cardTitle3">Жевательная радость</h2>
+                    <p class="cardText">Не резинка, а нежный мармелад</p>
+
+                </div>
+            </div>
+            <img src="/img/drop.png" id="drop1">
+            <img src="/img/drop.png" id="drop2">
+        </section>
+        <section class="discountSec">
+            <img src="/img/ticketBack.png" id="ticketBack">
+            <div class="ticketFront">
+                <img src="/img/ticket.png" id="ticket">
+                <h2>Вкусная акция</h2>
+                <p id="discountText">скидки на любимый мармелад</p>
+                <a href="#">Получить</a>
+            </div>
+            <div class="discountDecor">
+                <img src="/img/Depth.png" id="decorDepth">
+                <img src="/img/orange.png" id="decorOranje">
+                <img src="/img/sticker.png" id="decorSticker">
+                <p id="decorText">ням ням ням ням ням ням ням</p>
+            </div>
+        </section>
+        <section class="aboutUsSec">
+            <div class="aboutUsSecLine"></div>
+            <div class="aboutUsSecWhapper">
+                <div class="aboutUsSecContent">
+                    <h1>Сделано с любовью к <span>мармеладу</span></h1>
+                    <p>Мы любим фрукты, солнце и честные рецепты. Bounce родился из желания сделать мармелад, который
+                        хочется жевать снова и снова.</p>
+                    <a href="">Познакомиться</a>
+                </div>
+                <div class="aboutUsSecImages">
+                    <img src="/img/photo.png" id="photo1" loading="lazy">
+                    <img src="/img/aboutUsSecDecor.png" id="photo2" loading="lazy">
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="flowerSpin.js"></script>
+    <script>
+        const track = document.querySelector('.ticker__track');
+        track.innerHTML += track.innerHTML; 
+    </script>
+    <script src="parallax.js"></script>
+<footer>
+    <div class="leftFooter">
+        <h1>Bounce</h1>
+        <p>Сочный мармелад для большого настроения.</p>
+    </div>
+    <div class="rirhtFooter">
+        <div class="footerColumn">
+            <a href="catalog.html">каталог</a>
+            <a href="aboutUs.html">о нас</a>
+            <a href="">акции</a>
+        </div>
+        <div class="footerColumn">
+            <a href="">tasty@bounce.ru</a>
+            <a href="">+7 999 123-45-67</a>
+            <a href="">мы во Вконтакте</a>
+        </div>
+    </div>
+</footer>
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="bounce.css">
+</head>
+
+<body>
+    <header>
+        <a href="index.html" class="logo">Bounce</a>
+        <nav class="navHeader">
+            <a href="aboutUs.html">О НАС</a>
+            <a href="">АКЦИИ</a>
+            <a href="catalog.html">КАТАЛОГ</a>
+             <a href="cart.html">КОРЗИНА</a>
+        </nav>
+        <a href="registration.html" class="login">Войти</a>
+    </header>
+    <main>
+        <section class="catalogHero">
+            <img src="/img/catalogTitle.png" id="catalogTitle">
+        </section>
+        <section class="catalogSec">
+            <input type="text" id="search" placeholder="Поиск...">
+            <select id="filter">
+                <option value="" disabled selected>Фильтрация</option>
+                <option value="all">Все</option>
+                <option value="sweet">Сладкий</option>
+                <option value="sour">Кислый</option>
+                <option value="other">Другое</option>
+            </select>
+            <div class="products">
+               
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="leftFooter">
+            <h1>Bounce</h1>
+            <p>Сочный мармелад для большого настроения.</p>
+        </div>
+        <div class="rirhtFooter">
+            <div class="footerColumn">
+                <a href="catalog.html">каталог</a>
+                <a href="aboutUs.html">о нас</a>
+                <a href="">акции</a>
+            </div>
+            <div class="footerColumn">
+                <a href="">tasty@bounce.ru</a>
+                <a href="">+7 999 123-45-67</a>
+                <a href="">мы во Вконтакте</a>
+            </div>
+        </div>
+    </footer>
+    <script type="module" src="catalog.js"></script>
+</body>
+
+</html>

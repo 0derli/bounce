@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="bounce.css">
+</head>
+
+<body>
+     <header>
+        <a href="index.html" class="logo">Bounce</a>
+        <nav class="navHeader">
+            <a href="aboutUs.html">О НАС</a>
+            <a href="">АКЦИИ</a>
+            <a href="catalog.html">КАТАЛОГ</a>
+            <a href="cart.html">КОРЗИНА</a>
+        </nav>
+        <a href="registration.html" class="login">Войти</a>
+    </header>
+    <main class="auth">
+        <div class="authContainer">
+            <div class="authDecor">
+                <img src="/img/authBack.png">
+                <img src="/img/authGummy.png" id="authGummy">
+            </div>
+            <div class="authContent">
+               <div class="authSwitch">
+    <button class="svitchBtn sctive">Регистрация</button>
+    <button class="switchBtn">Авторизация</button>
+    <div class="switchSlider register"></div>
+</div>
+
+            <form class="registrationForm">
+                <input type="text" placeholder="Имя">
+                <input type="tel" placeholder="Номер телефона">
+                <input type="password" placeholder="Пароль">
+                <button class="authBtn">Зарегестрироваться</button>
+            </form>
+            <form class="loginForm">
+                <input type="tel" placeholder="Номер телефона">
+                <input type="password" placeholder="Пароль">
+                <button class="authBtn">Войти</button>
+            </form>
+            </div>
+        </div>
+    </main>
+    <footer>
+    <div class="leftFooter">
+        <h1>Bounce</h1>
+        <p>Сочный мармелад для большого настроения.</p>
+    </div>
+    <div class="rirhtFooter">
+        <div class="footerColumn">
+            <a href="catalog.html">каталог</a>
+            <a href="aboutUs.html">о нас</a>
+            <a href="">акции</a>
+        </div>
+        <div class="footerColumn">
+            <a href="">tasty@bounce.ru</a>
+            <a href="">+7 999 123-45-67</a>
+            <a href="">мы во Вконтакте</a>
+        </div>
+    </div>
+</footer>
+<script type="module" src="auth.js"></script>
+</body>
+</html>
