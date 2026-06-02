@@ -226,6 +226,8 @@ header a {
     flex-direction: column;
     align-items: center;
     text-align: center;
+    overflow-y: hidden;
+    width: 1920px;
 }
 
 .card {
@@ -1086,4 +1088,65 @@ option:checked {
     display: flex;
     flex-direction: column;
     text-align: center;
+}
+
+.profile {
+    background-color: #FFFFF0;
+    height: 1421px;
+    padding-top: 87px;
+}
+
+.profileInfo {
+    width: 1732px;
+    height: 500px;
+    border: 3px solid #FF8081;
+    border-radius: 24px;
+    background-color: #FFFFF0;
+    position: relative;
+    text-align: center;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+}
+
+.profileData h1 {
+    font-family: 'aqum';
+    color: #FF0066;
+    font-size: 2.5rem;
+    margin-top: 60px;
+    margin-bottom: 70px;
+}
+
+.profileAvatar {
+    position: relative;
+    width: 168px;
+    height: 158px;
+    margin: 60px 100px 0 60px;
+}
+
+.infoRow {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    text-align: start;
+    margin-bottom: 25px;
+    font-family: 'guidy';
+    font-size: 2rem;
+}
+
+.profileData h2 {
+    position: absolute;
+    top: 65px;
+    right: 75px;
+    font-family: 'aqum';
+    font-size: 2rem;
+    color: #FF8081;
+}
+
+.profileSetting {
+    background-color: #FFFFF0;
+    font-size: 2rem;
+    font-family: 'aqum';
+    color: #FF8081;
+    border: none;
 }

@@ -26,7 +26,7 @@ async function loadOrders() {
     const orderList = document.getElementById('orderList');
     
     if (orders.length === 0) {
-        orderList.innerHTML = '<p>У вас пока нет заказов</p>';
+        orderList.innerHTML = '<p>Все мармеладки съедены</p>';
         return;
     }
     
