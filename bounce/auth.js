@@ -4,7 +4,6 @@ import { UserDatabase } from './authDb.js';
 const userDB = new UserDatabase();
 
 document.addEventListener('DOMContentLoaded', async () => {
-
     await userDB.init();
 
     const regBtn = document.querySelector('.svitchBtn');
@@ -12,14 +11,32 @@ document.addEventListener('DOMContentLoaded', async () => {
     const regForm = document.querySelector('.registrationForm');
     const loginForm = document.querySelector('.loginForm');
 
+    const savedUser = sessionStorage.getItem('currentUser');
+    if (savedUser) {
+        window.location.href = 'profile.html';
+        return;
+    }
+
     function showRegistration() {
         regForm.classList.add('active');
         loginForm.classList.remove('active');
+        regBtn.classList.add('sctive');
+        loginBtn.classList.remove('active');
+        
+        const slider = document.querySelector('.switchSlider');
+        slider.classList.remove('login');
+        slider.classList.add('register');
     }
 
     function showLogin() {
         loginForm.classList.add('active');
         regForm.classList.remove('active');
+        loginBtn.classList.add('active');
+        regBtn.classList.remove('sctive');
+        
+        const slider = document.querySelector('.switchSlider');
+        slider.classList.remove('register');
+        slider.classList.add('login');
     }
 
     regBtn?.addEventListener('click', showRegistration);
@@ -32,10 +49,20 @@ document.addEventListener('DOMContentLoaded', async () => {
         const phone = regForm.querySelector('input[placeholder="Номер телефона"]').value;
         const password = regForm.querySelector('input[placeholder="Пароль"]').value;
         
+        if (!name || !phone || !password) {
+            alert('Заполните все поля');
+            return;
+        }
+        
         try {
             const result = await userDB.addUser({ name, phoneNumber: phone, password });
             alert(result);
-            regForm.reset();
+            // После регистрации сразу авторизуем
+            const loginResult = await userDB.loginUser(phone, password);
+            if (loginResult.success) {
+                sessionStorage.setItem('currentUser', JSON.stringify(loginResult.user));
+                window.location.href = 'profile.html';
+            }
         } catch (error) {
             alert(error);
         }
@@ -47,44 +74,11 @@ document.addEventListener('DOMContentLoaded', async () => {
         const password = loginForm.querySelector('input[placeholder="Пароль"]').value;
         
         const result = await userDB.loginUser(phone, password);
-        alert(result.message);
-        if (result.success) loginForm.reset();
+        if (result.success) {
+            sessionStorage.setItem('currentUser', JSON.stringify(result.user));
+            window.location.href = 'profile.html';
+        } else {
+            alert(result.message);
+        }
     });
-});
-
-
-document.addEventListener('DOMContentLoaded', () => {
-    const regBtn = document.querySelector('.svitchBtn');
-    const loginBtn = document.querySelector('.switchBtn');
-    const regForm = document.querySelector('.registrationForm');
-    const loginForm = document.querySelector('.loginForm');
-    const slider = document.querySelector('.switchSlider');
-
-    function showRegistration() {
-        regForm.classList.add('active');
-        loginForm.classList.remove('active');
-
-        regBtn.classList.add('sctive');
-        loginBtn.classList.remove('active');
-        
-        slider.classList.remove('login');
-        slider.classList.add('register');
-    }
-
-    function showLogin() {
-
-        loginForm.classList.add('active');
-        regForm.classList.remove('active');
-
-        loginBtn.classList.add('active');
-        regBtn.classList.remove('sctive');
-
-        slider.classList.remove('register');
-        slider.classList.add('login');
-    }
-
-    regBtn.addEventListener('click', showRegistration);
-    loginBtn.addEventListener('click', showLogin);
-
-    showRegistration();
 });

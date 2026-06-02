@@ -25,97 +25,30 @@ function openDB() {
     });
 }
 
-async function saveProducts(products) {
-    const db = await openDB();
-    const transaction = db.transaction([STORE_NAME], 'readwrite');
-    const store = transaction.objectStore(STORE_NAME);
-    
-    for (const product of products) {
-        store.put(product);
+export class ProductDatabase {
+    async init() {
+        this.db = await openDB();
     }
     
-    return new Promise((resolve, reject) => {
-        transaction.oncomplete = () => resolve();
-        transaction.onerror = () => reject(transaction.error);
-    });
-}
-
-async function getAllProducts() {
-    const db = await openDB();
-    const transaction = db.transaction([STORE_NAME], 'readonly');
-    const store = transaction.objectStore(STORE_NAME);
-    const request = store.getAll();
+    async addProduct(product) {
+        const db = await openDB();
+        const transaction = db.transaction([STORE_NAME], 'readwrite');
+        return new Promise((resolve, reject) => {
+            const request = transaction.objectStore(STORE_NAME).add(product);
+            request.onsuccess = () => resolve(product);
+            request.onerror = () => reject(request.error);
+        });
+    }
     
-    return new Promise((resolve, reject) => {
-        request.onsuccess = () => resolve(request.result);
-        request.onerror = () => reject(request.error);
-    });
-}
-
-async function getProductsByCategory(category) {
-    const db = await openDB();
-    const transaction = db.transaction([STORE_NAME], 'readonly');
-    const store = transaction.objectStore(STORE_NAME);
-    const index = store.index('category');
-    const request = index.getAll(category);
-    
-    return new Promise((resolve, reject) => {
-        request.onsuccess = () => resolve(request.result);
-        request.onerror = () => reject(request.error);
-    });
-}
-
-async function searchProductsByName(searchTerm) {
-    const allProducts = await getAllProducts();
-    return allProducts.filter(product => 
-        product.name.toLowerCase().includes(searchTerm.toLowerCase())
-    );
-}
-
-async function clearProducts() {
-    const db = await openDB();
-    const transaction = db.transaction([STORE_NAME], 'readwrite');
-    const store = transaction.objectStore(STORE_NAME);
-    store.clear();
-    
-    return new Promise((resolve, reject) => {
-        transaction.oncomplete = () => resolve();
-        transaction.onerror = () => reject(transaction.error);
-    });
-}
-
-async function updateProduct(product) {
-    const db = await openDB();
-    const transaction = db.transaction([STORE_NAME], 'readwrite');
-    const store = transaction.objectStore(STORE_NAME);
-    store.put(product);
-    
-    return new Promise((resolve, reject) => {
-        transaction.oncomplete = () => resolve();
-        transaction.onerror = () => reject(transaction.error);
-    });
-}
-
-async function deleteProduct(productId) {
-    const db = await openDB();
-    const transaction = db.transaction([STORE_NAME], 'readwrite');
-    const store = transaction.objectStore(STORE_NAME);
-    store.delete(productId);
-    
-    return new Promise((resolve, reject) => {
-        transaction.oncomplete = () => resolve();
-        transaction.onerror = () => reject(transaction.error);
-    });
-}
-
-async function getProductById(productId) {
-    const db = await openDB();
-    const transaction = db.transaction([STORE_NAME], 'readonly');
-    const store = transaction.objectStore(STORE_NAME);
-    const request = store.get(productId);
-    
-    return new Promise((resolve, reject) => {
-        request.onsuccess = () => resolve(request.result);
-        request.onerror = () => reject(request.error);
-    });
+    async getAllProducts() {
+        const db = await openDB();
+        const transaction = db.transaction([STORE_NAME], 'readonly');
+        const store = transaction.objectStore(STORE_NAME);
+        const request = store.getAll();
+        
+        return new Promise((resolve, reject) => {
+            request.onsuccess = () => resolve(request.result);
+            request.onerror = () => reject(request.error);
+        });
+    }
 }

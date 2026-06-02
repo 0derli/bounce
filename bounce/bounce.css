@@ -941,7 +941,8 @@ option:checked {
     background: linear-gradient(#FFFFF0, #FFECDD);
     position: relative;
      overflow-x: hidden;
-    min-height: 972px;
+    height: 972px;
+     overflow-y: hidden;
 }
 
 .authDecor {

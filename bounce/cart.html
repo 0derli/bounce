@@ -4,66 +4,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Корзина - Bounce</title>
     <link rel="stylesheet" href="bounce.css">
 </head>
 
 <body>
-     <header>
+    <header>
         <a href="index.html" class="logo">Bounce</a>
         <nav class="navHeader">
             <a href="aboutUs.html">О НАС</a>
             <a href="">АКЦИИ</a>
             <a href="catalog.html">КАТАЛОГ</a>
-           <a href="cart.html">КОРЗИНА</a>
+            <a href="cart.html">КОРЗИНА</a>
         </nav>
-        <a href="registration.html" class="login">Войти</a>
+        <a href="registration.html" class="login" id="authLink">Войти</a>
     </header>
     <main class="cartMain">
-        <div class="cartContent">
-            <h1>Корзина</h1>
-            <h2>Проверь заказ и оформи доставку</h2>
-            <p>Все мармеладки съедены (>_<)</p>
-            <a href="catalog.html">В каталог</a>
-            <img src="/img/cartLine.png">
-        </div>
-        <div class="cartData">
-            <div class="cartCost">
-                <p>Итого:</p>
-                <p>Доставка: 200 руб.</p>
-                <hr>
-                <p>к оплате:</p>
-            </div>
-            <div class="promoCode">
-                <p>Промокод:</p>
-                <input type="text" placeholder="Ввести промокод">
-            </div>
-            <div class="dataForm">
-                <h3>Данные для доставки</h3>
-                <input type="text" placeholder="ФИО">
-                <input type="text" placeholder="Адрес">
-                <input type="tel" placeholder="Номер телефона">
-                <button>Заказать</button>
-            </div>
-        </div>
+        <div id="cartContainer"></div>
     </main>
     <footer>
-    <div class="leftFooter">
-        <h1>Bounce</h1>
-        <p>Сочный мармелад для большого настроения.</p>
-    </div>
-    <div class="rirhtFooter">
-        <div class="footerColumn">
-            <a href="catalog.html">каталог</a>
-            <a href="aboutUs.html">о нас</a>
-            <a href="">акции</a>
+        <div class="leftFooter">
+            <h1>Bounce</h1>
+            <p>Сочный мармелад для большого настроения.</p>
         </div>
-        <div class="footerColumn">
-            <a href="">tasty@bounce.ru</a>
-            <a href="">+7 999 123-45-67</a>
-            <a href="">мы во Вконтакте</a>
+        <div class="rirhtFooter">
+            <div class="footerColumn">
+                <a href="catalog.html">каталог</a>
+                <a href="aboutUs.html">о нас</a>
+                <a href="">акции</a>
+            </div>
+            <div class="footerColumn">
+                <a href="">tasty@bounce.ru</a>
+                <a href="">+7 999 123-45-67</a>
+                <a href="">мы во Вконтакте</a>
+            </div>
         </div>
-    </div>
-</footer>
+    </footer>
+    <script type="module" src="cart.js"></script>
 </body>
+
 </html>
