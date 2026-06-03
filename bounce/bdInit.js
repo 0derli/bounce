@@ -12,6 +12,7 @@ try {
         phoneNumber: "+79991234567",
         name: "Тестовый пользователь",
         password: "123",
+        avatar: "avatar1.png",
         createdAt: new Date().toISOString()
     });
 } catch(e) {

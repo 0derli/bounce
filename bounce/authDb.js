@@ -1,8 +1,7 @@
-
 export class UserDatabase {
     constructor() {
         this.dbName = 'UserAuthDB'; 
-        this.dbVersion = 1;
+        this.dbVersion = 3;
         this.db = null;
     }
 
@@ -24,6 +23,27 @@ export class UserDatabase {
                         keyPath: 'phoneNumber'
                     });
                     userStore.createIndex('name', 'name');
+                } else {
+                    const transaction = event.target.transaction;
+                    const store = transaction.objectStore('users');
+                    
+                    const users = store.getAll();
+                    users.onsuccess = () => {
+                        users.result.forEach(user => {
+                            let needsUpdate = false;
+                            if (!user.avatar) {
+                                user.avatar = 'avatar1.png';
+                                needsUpdate = true;
+                            }
+                            if (user.discount === undefined) {
+                                user.discount = 0;
+                                needsUpdate = true;
+                            }
+                            if (needsUpdate) {
+                                store.put(user);
+                            }
+                        });
+                    };
                 }
             };
         });
@@ -37,6 +57,8 @@ export class UserDatabase {
                 phoneNumber: user.phoneNumber,
                 name: user.name,
                 password: user.password,
+                avatar: user.avatar || 'avatar1.png',
+                discount: 10,
                 createdAt: new Date().toISOString()
             });
             
@@ -61,4 +83,3 @@ export class UserDatabase {
         });
     }
 }
-

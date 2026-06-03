@@ -20,7 +20,7 @@ function renderProducts(list) {
             <img src="${cardProduct.image}">
             <div class="cardHeader">
                 <h3>${cardProduct.name}</h3>
-                <span>${cardProduct.price} ₽</span>
+                <span>${cardProduct.price}</span>
             </div>
             <p>${cardProduct.weight}</p>
             <button class="cardBtn" data-id="${cardProduct.id}" data-name="${cardProduct.name}" data-price="${cardProduct.price}" data-image="${cardProduct.image}">В корзину</button>

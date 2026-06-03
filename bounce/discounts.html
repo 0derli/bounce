@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bounce - Акции</title>
+    <link rel="stylesheet" href="bounce.css">
+</head>
+
+<body>
+    <header>
+        <a href="index.html" class="logo">Bounce</a>
+        <nav class="navHeader">
+            <a href="aboutUs.html">О НАС</a>
+            <a href="discounts.html">АКЦИИ</a>
+            <a href="catalog.html">КАТАЛОГ</a>
+            <a href="cart.html">КОРЗИНА</a>
+        </nav>
+        <a href="registration.html" id="authLink" class="login">Войти</a>
+    </header>
+    <main class="discountsMain">
+        <section class="discountsHero">
+            <h1>ПОЧУВСТВУЙ ВКУС ЛЕТА</h1>
+            <h2>Сладкие скидки и сочные бонусы</h2>
+            <a href="#skidki">К акциям ↓</a>
+        </section>
+        <section class="skidki" id="skidki">
+            <h1>выгода здесь!!! (>⩊<)</h1>
+            <img src="/img/skidkiCard.png" alt="акции">
+            <div class="skidkiBtn">
+                <button id="btn1">Зарегистрироваться</button>
+                <button id="btn2">В каталог</button>
+                <button id="btn3">Взять набор</button>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="leftFooter">
+            <h1>Bounce</h1>
+            <p>Сочный мармелад для большого настроения.</p>
+        </div>
+        <div class="rirhtFooter">
+            <div class="footerColumn">
+                <a href="catalog.html">каталог</a>
+                <a href="aboutUs.html">о нас</a>
+                <a href="discounts.html">акции</a>
+            </div>
+            <div class="footerColumn">
+                <a href="">tasty@bounce.ru</a>
+                <a href="">+7 999 123-45-67</a>
+                <a href="">мы во Вконтакте</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="discounts.js"></script>
+    <script>
+        const currentUser = sessionStorage.getItem('currentUser');
+        const authLink = document.getElementById('authLink');
+        if (currentUser) {
+            authLink.textContent = 'Профиль';
+            authLink.href = 'profile.html';
+        } else {
+            authLink.textContent = 'Войти';
+            authLink.href = 'registration.html';
+        }
+    </script>
+</body>
+
+</html>

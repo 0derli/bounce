@@ -7,7 +7,9 @@ a {
     text-decoration: none;
 }
 
-a, button, .clickable {
+a,
+button,
+.clickable {
     -webkit-tap-highlight-color: transparent;
 }
 
@@ -103,7 +105,7 @@ header a {
     gap: 698px;
     justify-content: space-around;
     position: absolute;
-     left: 50%;
+    left: 50%;
     transform: translateX(-50%);
     margin-top: 50px;
 }
@@ -164,6 +166,7 @@ header a {
     from {
         transform: rotate(0deg);
     }
+
     to {
         transform: rotate(360deg);
     }
@@ -194,6 +197,7 @@ header a {
     0% {
         transform: translateX(0);
     }
+
     100% {
         transform: translateX(-50%);
     }
@@ -208,6 +212,7 @@ header a {
         opacity: 0;
         transform: scale(0.9) translateY(30px);
     }
+
     100% {
         opacity: 1;
         transform: scale(1) translateY(0);
@@ -236,7 +241,7 @@ header a {
     border-radius: 24px;
     background: linear-gradient(#FFFFF0, #FFD0D0);
     box-shadow: 0 10px 4px 0 #FF0066;
-        display: flex;
+    display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
@@ -250,13 +255,13 @@ header a {
     background-image: url('data:image/svg+xml,%3Csvg viewBox="0 0 2 2" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noise"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="1" result="noise"/%3E%3CfeColorMatrix type="matrix" values="1 0 0 0 0   1 0 0 0 0   1 0 0 0 0   0 0 0 0.4 0" in="noise"/%3E%3C/filter%3E%3Crect width="100%" height="100%" filter="url(%23noise)" opacity="1"/%3E%3C/svg%3E');
     background-repeat: repeat;
     background-size: 1px 1px;
-    opacity: 0.4;  
+    opacity: 0.4;
     pointer-events: none;
     mix-blend-mode: overlay;
     z-index: 1;
 }
 
-.noise > * {
+.noise>* {
     position: relative;
     z-index: 2;
 }
@@ -322,7 +327,7 @@ header a {
 }
 
 .discountSec {
-        padding-top: 115px;
+    padding-top: 115px;
     background-image: url(/img/discountBack.png);
     background-repeat: no-repeat;
     background-position: center top;
@@ -346,38 +351,38 @@ header a {
     font-family: 'aqum';
     font-size: 4rem;
     background: linear-gradient(#FDB31D, #F45102);
-  background-clip: text;
-  color: transparent;
-   transform: rotate(-6.86deg);
-   position: absolute;
-   top: 294px;
-   left: 223px;
+    background-clip: text;
+    color: transparent;
+    transform: rotate(-6.86deg);
+    position: absolute;
+    top: 294px;
+    left: 223px;
 }
 
 #discountText {
     font-family: 'guidy';
     font-size: 3rem;
     color: #FB6A00;
-   transform: rotate(-6.86deg);
-   position: absolute;
-   top: 390px;
-   left: 230px;
+    transform: rotate(-6.86deg);
+    position: absolute;
+    top: 390px;
+    left: 230px;
 }
 
 .discountSec a {
     font-family: 'aqum';
     font-size: 3rem;
     color: #FB6A00;
-   transform: rotate(-6.86deg);
-   position: absolute;
-   padding: 25px 113px;
-   z-index: 3;
-   top: 500px;
-   left: 610px;
-   background: radial-gradient(circle, #D0FF8B, #92D869);
-   border-radius: 24px;
-   border: 8px solid #FF0066;
-   display: inline-block;
+    transform: rotate(-6.86deg);
+    position: absolute;
+    padding: 25px 113px;
+    z-index: 3;
+    top: 500px;
+    left: 610px;
+    background: radial-gradient(circle, #D0FF8B, #92D869);
+    border-radius: 24px;
+    border: 8px solid #FF0066;
+    display: inline-block;
 }
 
 .discountDecor {
@@ -476,9 +481,9 @@ header a {
     color: #FFF4DC;
     font-family: 'guidy';
     font-size: 3rem;
-        display: inline-block; 
-    width: fit-content; 
-    align-self: center; 
+    display: inline-block;
+    width: fit-content;
+    align-self: center;
 }
 
 .aboutUsSecImages {
@@ -548,11 +553,11 @@ footer a {
     display: flex;
     flex-direction: column;
     gap: 50px;
-        margin-bottom: 83px;
+    margin-bottom: 83px;
 }
 
 .auHero {
-        padding-top: 53px;
+    padding-top: 53px;
     background-color: #FFFFBC;
     position: relative;
     overflow-x: hidden;
@@ -627,15 +632,16 @@ span {
 .gummyParallax img {
     will-change: transform;
     transition: transform 0.1s linear;
-    pointer-events: none; 
+    pointer-events: none;
 }
 
-#gb1, #gb2 {
+#gb1,
+#gb2 {
     transition: transform 0.05s linear;
 }
 
 .numbers {
-        padding-top: 126px;
+    padding-top: 126px;
     background-color: #FFFFBC;
     position: relative;
     overflow-x: hidden;
@@ -644,9 +650,9 @@ span {
 
 .numberContent {
     background-image: url(/img/numbersBack.png);
-     max-width: 1747px;
+    max-width: 1747px;
     background-repeat: no-repeat;
-     background-size: 100% 100%;
+    background-size: 100% 100%;
     background-position: center;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -664,19 +670,19 @@ span {
 #num1 {
     background: radial-gradient(#FF0066, #BD0E7D);
     background-clip: text;
-  color: transparent;
+    color: transparent;
 }
 
 #num2 {
     background: radial-gradient(#75B352, #2B724E);
     background-clip: text;
-  color: transparent;
+    color: transparent;
 }
 
 #num3 {
     background: linear-gradient(#EE530B, #CA2525);
     background-clip: text;
-  color: transparent;
+    color: transparent;
 }
 
 .numberContent p {
@@ -717,7 +723,7 @@ span {
 .actionsLine1 {
     background-image: url(/img/line1.png);
     background-repeat: no-repeat;
-     background-size: cover;
+    background-size: cover;
     background-position: center;
 }
 
@@ -773,9 +779,9 @@ span {
 .catalogHero {
     background-image: url(/img/heroCatalog.png);
     background-repeat: no-repeat;
-     background-size: cover;
+    background-size: cover;
     background-position: center;
-     text-align: center;
+    text-align: center;
 }
 
 #catalogTitle {
@@ -876,7 +882,7 @@ span {
     left: 50%;
     transform: translateX(-50%);
     margin-bottom: 28px;
-     transition: all 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 .catalogSec input::placeholder {
@@ -892,7 +898,7 @@ span {
     width: 384px;
     padding: 16px 50px;
     border: 5px solid #FF0066;
-     border-radius: 20px;
+    border-radius: 20px;
     background-color: #FFFFF1;
     font-family: 'guidy';
     font-size: 2rem;
@@ -942,9 +948,9 @@ option:checked {
 .auth {
     background: linear-gradient(#FFFFF0, #FFECDD);
     position: relative;
-     overflow-x: hidden;
+    overflow-x: hidden;
     height: 972px;
-     overflow-y: hidden;
+    overflow-y: hidden;
 }
 
 .authDecor {
@@ -971,7 +977,7 @@ option:checked {
     position: relative;
     display: flex;
     background: #F8E8C6;
-    border-radius: 24px; 
+    border-radius: 24px;
     padding: 30px 55px;
     margin-bottom: 115px;
     max-width: 750px;
@@ -1045,17 +1051,17 @@ option:checked {
 }
 
 .authContent input:focus {
-    outline: none; 
-    border: 5px solid #FF0066; 
-    padding: calc(26px - 3px) calc(50px - 3px); 
+    outline: none;
+    border: 5px solid #FF0066;
+    padding: calc(26px - 3px) calc(50px - 3px);
 }
 
 .authContent input:first-child {
-        margin-top: 115px;
+    margin-top: 115px;
 }
 
-.authContent input:last-of-type  {
-        margin-bottom: 103px;
+.authContent input:last-of-type {
+    margin-bottom: 103px;
 }
 
 .authBtn {
@@ -1149,4 +1155,271 @@ option:checked {
     font-family: 'aqum';
     color: #FF8081;
     border: none;
+    position: relative;
+    left: 830px;
+}
+
+.profileAvatar {
+    position: relative;
+    width: 168px;
+    height: 158px;
+    margin: 60px 100px 0 60px;
+    text-align: center;
+}
+
+.changeAvatarBtn {
+    background-color: #FF8081;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 5px 10px;
+    font-size: 1.2rem;
+    font-family: 'aqum';
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.avatarModal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 128, 129, 0.32);
+    z-index: 9999;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.avatarModalContent {
+    background-color: #FFFFF0;
+    padding: 50px;
+    border-radius: 24px;
+    border: 5px solid #FF8081;
+    width: 800px;
+    max-width: 90vw;
+    text-align: center;
+    position: relative;
+    z-index: 10000;
+}
+
+.avatarList {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 30px;
+    pointer-events: none;
+}
+
+.avatarOption {
+    width: 180px;
+    height: 180px;
+    cursor: pointer;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    transition: 0.3s;
+    margin: 0 auto;
+    pointer-events: auto;
+    position: relative;
+    z-index: 10;
+}
+
+.avatarOption:hover {
+    border-color: #FF0066;
+    transform: scale(1.05);
+}
+
+.closeModal {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    font-size: 32px;
+    cursor: pointer;
+    color: #FF8081;
+}
+
+.avatarModalContent h3 {
+    font-family: 'aqum';
+    font-size: 2rem;
+    color: #FF0066;
+    margin-bottom: 20px;
+}
+
+.orders {
+    width: 1732px;
+    height: 500px;
+    border: 3px solid #FF8081;
+    border-radius: 24px;
+    background-color: #FFFFF0;
+    position: relative;
+    text-align: center;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    margin-top: 67px;
+}
+
+.orders h2 {
+    font-family: 'aqum';
+    color: #FF0066;
+    font-size: 2.5rem;
+    margin-top: 60px;
+}
+
+.orders {
+    width: 1732px;
+    height: 500px;
+    border: 3px solid #FF8081;
+    border-radius: 24px;
+    background-color: #FFFFF0;
+    position: relative;
+    text-align: center;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    margin-top: 67px;
+}
+
+#orderList {
+    width: 100%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow-y: auto;
+}
+
+.empty-orders-text {
+    font-family: 'aqum';
+    color: #FF8081;
+    font-size: 2rem;
+    text-align: center;
+    margin: 0;
+    width: 100%;
+}
+
+.order-card {
+    background: white;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.cartMain {
+    background-color: #FFFFF0
+}
+
+.discountsHero {
+    padding-top: 68px;
+    background-image: url(/img/discountsBack.png);
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: cover;
+    position: relative;
+    overflow-x: hidden;
+    height: 961px;
+}
+
+.discountsHero h1 {
+    font-family: 'aqum';
+    font-size: 6rem;
+    color: #FFFFFF;
+    text-align: center;
+}
+
+.discountsHero h2 {
+    font-family: 'aqum';
+    font-size: 2.25rem;
+    color: #FFFFFF;
+    text-align: center;
+    margin-top: 25px;
+}
+
+.discountsHero a {
+    font-family: 'guidy';
+    font-size: 3rem;
+    color: #FFFFFF;
+    text-align: center;
+    background-color: #FF0066; 
+    padding: 30px 200px;
+    border-radius: 24px;
+    position: absolute;
+        left: 50%;
+    transform: translateX(-50%);
+    bottom: 120px;
+}
+
+.skidki {
+    padding-top: 105px;
+    background-image: url(/img/skidkiBack.png);
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: cover;
+    position: relative;
+    overflow-x: hidden;
+    height: 1145px;
+}
+
+.skidki img {
+    display: block;
+    margin: 0 auto;
+}
+
+.skidki h1 {
+    font-family: 'aqum';
+    font-size: 4rem;
+    color: #F66F3E;
+    text-align: center;
+    margin-bottom: 100px;
+}
+
+.skidkiBtn {
+    display: flex;
+    gap: 225px;
+}
+
+.skidkiBtn button {
+    font-family: 'guidy';
+    font-size: 2rem;
+    color: #FFF0D7;
+    border: none;
+    border-radius: 24px;
+    width: 389px;
+    height: 87px;
+    cursor: pointer;
+    position: relative;
+    left: 153px;
+    top: -250px;
+}
+
+#btn1 {
+    background-color: #FF0066;
+}
+
+#btn2 {
+    background-color: #2F6AD8;
+}
+
+#btn3 {
+    background-color: #75B352;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+img {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+img.loaded {
+    opacity: 1;
+}
+
+img:not([loading="lazy"]) {
+    opacity: 1; 
 }

@@ -1,4 +1,3 @@
-
 import { CartDatabase } from './cartDb.js';
 
 const cartDB = new CartDatabase();
@@ -34,48 +33,98 @@ async function loadCart() {
     
     if (cartItems.length === 0) {
         container.innerHTML = `
-            <div style="text-align:center; padding:50px;">
-                <h1>Корзина</h1>
-                <p>Ваша корзина пуста</p>
-                <a href="catalog.html" style="display:inline-block; background:#ff6b6b; color:white; padding:10px 20px; text-decoration:none; border-radius:5px;">В каталог</a>
+            <div style="text-align:center; padding:50px; background-color: #FFFFF0; min-height:70vh; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                <h1 style="font-size: 5rem; font-family: 'aqum'; color: #FF0066; margin: 50px;">Корзина</h1>
+                <p style="color: #2A2316; font-family: 'guidy'; font-size: 3rem; margin-bottom: 50px;">Ваша корзина пуста</p>
+                <a href="catalog.html" style="display:inline-block; background:#FF4B83; color:white; padding:40px 60px; text-decoration:none; border-radius:24px; font-size: 3rem; font-family: 'guidy';">В каталог</a>
             </div>
         `;
         return;
     }
     
     let total = 0;
-    let itemsHtml = '<h1>Корзина</h1>';
-    itemsHtml += '<div style="max-width:800px; margin:0 auto;">';
+    let specialOfferActive = false;
+    let hasSourWorms = false;
+    let hasLemonSlices = false;
+    let hasGreenApple = false;
     
     for (const item of cartItems) {
         const itemTotal = item.product.price * item.quantity;
         total += itemTotal;
+        
+        if (item.product.name === "Кислые червячки") hasSourWorms = true;
+        if (item.product.name === "Лимонные дольки") hasLemonSlices = true;
+        if (item.product.name === "Зеленое яблоко") hasGreenApple = true;
+    }
+    
+    if (hasSourWorms && hasLemonSlices && hasGreenApple) {
+        specialOfferActive = true;
+        total = 450;
+    }
+    
+    let discountAmount = 0;
+    if (user.discount && user.discount > 0 && !specialOfferActive) {
+        discountAmount = total * (user.discount / 100);
+        total = total - discountAmount;
+    }
+    
+    let deliveryPrice = 200;
+    if (total >= 1000) {
+        deliveryPrice = 0;
+    }
+    
+    let itemsHtml = '<h1></h1>';
+    itemsHtml += '<div style="max-width:80%; margin:0 auto; background-color: #FFFFF0">';
+    
+    for (const item of cartItems) {
+        const itemTotal = item.product.price * item.quantity;
         itemsHtml += `
-            <div style="display:flex; align-items:center; gap:20px; border-bottom:1px solid #ddd; padding:15px;">
-                <img src="${item.product.image}" style="width:80px; height:80px; object-fit:cover;">
+            <div style="display:flex; align-items:center; gap:20px; border-bottom:5px solid #FF8081; padding:15px; margin-top: 50px">
+                <img src="${item.product.image}" style="width:200px; object-fit:cover;">
                 <div style="flex:1">
-                    <h3>${item.product.name}</h3>
-                    <p>${item.product.price} ₽ x ${item.quantity}</p>
-                    <p><strong>${itemTotal} ₽</strong></p>
+                    <h3 style="font-family: 'aqum'; color: #FF0066; font-size: 2rem; margin-bottom: 30px">${item.product.name}</h3>
+                    <p style="color: #2A2316; font-family: 'guidy'; font-size: 1.5rem; margin-bottom: 20px">${item.product.price} ₽ x ${item.quantity}</p>
+                    <p style="color: #2A2316; font-family: 'guidy'; font-size: 1.8rem"><strong>${itemTotal} ₽</strong></p>
                 </div>
-                <button class="remove-btn" data-id="${item.id}" style="background:#ff4444; color:white; border:none; padding:5px 10px; border-radius:3px; cursor:pointer;">Удалить</button>
+                <button class="remove-btn" data-id="${item.id}" style="background:#FF0066; color:white; border:none; padding:30px 50px; border-radius:15px; cursor:pointer; font-size: 1.7rem; font-family: 'aqum'; margin-bottom: 100px">Удалить</button>
             </div>
         `;
     }
     
+    let specialOfferHtml = '';
+    if (specialOfferActive) {
+        specialOfferHtml = `<div style="background:#FF4B83; color:white; padding:15px; border-radius:24px; margin-bottom:20px; text-align:center; font-family:'aqum'; font-size:1.8rem;">🎉 Акция! Набор "Кислые червячки + Лимонные дольки + Зеленое яблоко" = 450 ₽ 🎉</div>`;
+    }
+    
+    let discountHtml = '';
+    if (discountAmount > 0 && !specialOfferActive) {
+        discountHtml = `<p style="color: #2A2316; font-family: 'guidy'; font-size: 1.8rem; margin-bottom: 15px">Скидка ${user.discount}%: -${Math.round(discountAmount)} ₽</p>`;
+    }
+    
+    let deliveryHtml = '';
+    if (deliveryPrice === 0 && !specialOfferActive) {
+        deliveryHtml = `<p style="color: #2A2316; font-family: 'guidy'; font-size: 1.8rem; margin-bottom: 15px">Доставка: БЕСПЛАТНО (при заказе от 1000 ₽)</p>`;
+    } else if (!specialOfferActive) {
+        deliveryHtml = `<p style="color: #2A2316; font-family: 'guidy'; font-size: 1.8rem; margin-bottom: 15px">Доставка: ${deliveryPrice} ₽</p>`;
+    } else {
+        deliveryHtml = `<p style="color: #2A2316; font-family: 'guidy'; font-size: 1.8rem; margin-bottom: 15px">Доставка: ${deliveryPrice} ₽</p>`;
+    }
+    
     itemsHtml += `
-        <div style="margin-top:30px; padding:20px; background:#f9f9f9; border-radius:10px;">
-            <h3>Итого: ${total} ₽</h3>
-            <p>Доставка: 200 ₽</p>
-            <hr>
-            <h3>К оплате: ${total + 200} ₽</h3>
+        <div style="margin-top:30px; padding:20px; background:#FFFFF0; border-radius:24px;">
+            ${specialOfferHtml}
+            <h3 style="color: #2A2316; font-family: 'guidy'; font-size: 2.5rem; margin-bottom: 30px">Итого: ${Math.round(total)} ₽</h3>
+            ${discountHtml}
+            ${deliveryHtml}
+            <hr style="background-color: #FF8081;">
+            <h3 style="color: #2A2316; font-family: 'guidy'; font-size: 2.5rem; margin-bottom: 30px; margin-top: 50px;">К оплате: ${Math.round(total + deliveryPrice)} ₽</h3>
             
             <div style="margin-top:20px;">
-                <h4>Данные для доставки</h4>
-                <input type="text" id="orderName" placeholder="ФИО" value="${user.name}" style="width:100%; padding:10px; margin-bottom:10px; border:1px solid #ddd; border-radius:5px;">
-                <input type="text" id="orderAddress" placeholder="Адрес" style="width:100%; padding:10px; margin-bottom:10px; border:1px solid #ddd; border-radius:5px;">
-                <input type="tel" id="orderPhone" placeholder="Номер телефона" value="${user.phoneNumber}" style="width:100%; padding:10px; margin-bottom:10px; border:1px solid #ddd; border-radius:5px;">
-                <button id="orderBtn" style="background:#4CAF50; color:white; border:none; padding:10px 20px; border-radius:5px; cursor:pointer;">Заказать</button>
+                <h4 style="color: #FF0066; font-family: 'guidy'; font-size: 2.5rem; margin-bottom: 50px; margin-top: 100px;">Данные для доставки</h4>
+                <input style="border: 5px solid #FF8081; width: 100%; height: 50px; border-radius: 15px; background-color: #FFFFF0; padding-left: 30px; font-size: 2rem; color: #2A2316; font-family: 'guidy'; margin-bottom: 50px" type="text" id="orderName" placeholder="ФИО" value="${user.name}">
+                <input type="text" id="orderAddress" placeholder="Адрес" style="border: 5px solid #FF8081; width: 100%; height: 50px; border-radius: 15px; background-color: #FFFFF0; padding-left: 30px; font-size: 2rem; color: #2A2316; font-family: 'guidy'; margin-bottom: 50px">
+                <input type="tel" id="orderPhone" placeholder="Номер телефона" value="${user.phoneNumber}" style="border: 5px solid #FF8081; width: 100%; height: 50px; border-radius: 15px; background-color: #FFFFF0; padding-left: 30px; font-size: 2rem; color: #2A2316; font-family: 'guidy'; margin-bottom: 80px">
+                <button id="orderBtn" style="background:#FF0066; color:white; border:none; padding:30px 50px; border-radius:15px; cursor:pointer; font-size: 1.7rem; font-family: 'aqum'; margin-bottom: 100px">Заказать</button>
             </div>
         </div>
     </div>`;
@@ -108,12 +157,21 @@ async function loadCart() {
             });
         }
         
+        let finalTotal = total;
+        if (specialOfferActive) {
+            finalTotal = 450;
+        } else {
+            finalTotal = total + deliveryPrice;
+        }
+        
         await cartDB.createOrder(user.phoneNumber, {
             items: orderItems,
-            total: total + 200,
+            total: finalTotal,
             address: address,
             name: name,
-            phone: phone
+            phone: phone,
+            discountApplied: !specialOfferActive ? user.discount : 0,
+            specialOfferApplied: specialOfferActive
         });
         
         await cartDB.clearCart(user.phoneNumber);

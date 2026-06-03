@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Профиль - Bounce</title>
+    <title>Bounce - Профиль</title>
     <link rel="stylesheet" href="bounce.css">
 </head>
 
@@ -13,7 +13,7 @@
         <a href="index.html" class="logo">Bounce</a>
         <nav class="navHeader">
             <a href="aboutUs.html">О НАС</a>
-            <a href="">АКЦИИ</a>
+            <a href="discounts.html">АКЦИИ</a>
             <a href="catalog.html">КАТАЛОГ</a>
             <a href="cart.html">КОРЗИНА</a>
         </nav>
@@ -22,7 +22,8 @@
     <main class="profile">
         <section class="profileInfo">
             <div class="profileAvatar">
-                <img src="/img/avatar1.png">
+                <img id="avatarImg" src="/img/avatar1.png" style="width: 168px; height: 158px; border-radius: 50%; object-fit: cover;">
+                <button id="changeAvatarBtn" class="changeAvatarBtn">Изменить аватарку</button>
             </div>
             <div class="profileData">
                 <h1>Привет, <span id="userName"></span>!!!</h1>
@@ -37,6 +38,9 @@
                 <div class="infoRow">
                     <p>Пароль: <span id="passwordDisplay" class="displayText">••••••</span>
                     <input type="password" id="passwordInput" style="display:none; width:200px; padding:5px; margin-left:10px;" placeholder="Новый пароль"></p>
+                </div>
+                <div class="infoRow">
+                    <p id="userDiscount" style="font-family:'guidy'; font-size:1.5rem; color:#FF4B83; margin-top: 10px;"></p>
                 </div>
                 <button id="editProfileBtn" class="profileSetting">Настройки профиля</button>
             </div>
@@ -56,7 +60,7 @@
             <div class="footerColumn">
                 <a href="catalog.html">каталог</a>
                 <a href="aboutUs.html">о нас</a>
-                <a href="">акции</a>
+                <a href="discounts.html">акции</a>
             </div>
             <div class="footerColumn">
                 <a href="">tasty@bounce.ru</a>
@@ -65,6 +69,22 @@
             </div>
         </div>
     </footer>
+
+    <div id="avatarModal" class="avatarModal" style="display:none;">
+        <div class="avatarModalContent">
+            <span class="closeModal">&times;</span>
+            <h3>Выберите аватар</h3>
+            <div class="avatarList">
+                <img src="/img/avatar1.png" class="avatarOption" data-avatar="avatar1.png" onclick="window.selectAvatar('avatar1.png')">
+                <img src="/img/avatar2.png" class="avatarOption" data-avatar="avatar2.png" onclick="window.selectAvatar('avatar2.png')">
+                <img src="/img/avatar3.png" class="avatarOption" data-avatar="avatar3.png" onclick="window.selectAvatar('avatar3.png')">
+                <img src="/img/avatar4.png" class="avatarOption" data-avatar="avatar4.png" onclick="window.selectAvatar('avatar4.png')">
+                <img src="/img/avatar5.png" class="avatarOption" data-avatar="avatar5.png" onclick="window.selectAvatar('avatar5.png')">
+                <img src="/img/avatar6.png" class="avatarOption" data-avatar="avatar6.png" onclick="window.selectAvatar('avatar6.png')">
+            </div>
+        </div>
+    </div>
+
     <script type="module" src="profile.js"></script>
 </body>
 
